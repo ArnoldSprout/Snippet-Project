@@ -1,0 +1,47 @@
+{{template "base" .}}
+
+{{define "title"}}Post #{{.Snippet.ID}} {{end}}
+
+{{define "body"}}
+<style>
+       #post_table{
+           font-family: Arial, Helvetica;
+           border-collapse: collapse;
+           width:80%;
+       }
+       #post_table th, #post_table td{
+           border: 1px solid #ddd;
+           padding: 8px;    
+       }
+       #post_table tr:nth-child(even){
+           background-color: #f2f2f2;
+       }
+       #post_table th {
+           padding-top: 12px;
+           padding-bottom: 12px;
+           text-align: left;
+           background-color: #4CAF50;
+           color: white;
+       }
+</style>
+    {{with .Snippet}}
+    <table id="post_table">
+        <tr>
+            <div class='snippet'>
+
+                <div class='metadata'>
+                <td>   <strong>{{.Title}}</strong> | <span>#{{.ID}}</span></td>
+            </tr>
+            
+             <tr>
+                <td><pre><code>{{.Content}}</code></pre></td>
+            </tr>
+            <tr>
+                <div class='metadata'>
+            <td>     <time><strong>Created:</strong> {{humanDate .Created}}</time> |   <time><strong>Expires:</strong> {{humanDate .Expires}}</time></td>
+                </div>
+            </div>
+        </tr>
+    </table>
+    {{end}}
+{{end}}

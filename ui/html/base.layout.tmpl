@@ -1,0 +1,64 @@
+{{define "base"}}
+<html lang='en'>
+    <head>
+    <meta charset='UTF-8'>
+        <title>{{template "title" .}}- The Post </title>
+        
+        <link rel='shortcut icon' href='static/img/hi.png' type='image/png'>
+        <!--google fonts -->
+        <link rel='stylesheet' href='https://fonts.google.com/css?family=Ubuntu-Mono'>
+        <link rel='stylesheet' href='static/css/main.css'>
+        <!-- CSS -->
+        <style>
+       #post_table{
+           font-family: Arial, Helvetica;
+           border-collapse: collapse;
+           width:100%;
+       }
+       #post_table th, #post_table td{
+           border: 1px solid #ddd;
+           padding: 8px;    
+       }
+       #post_table tr:nth-child(even){
+           background-color: #f2f2f2;
+       }
+       #post_table th {
+           padding-top: 12px;
+           padding-bottom: 12px;
+           text-align: left;
+           background-color: #4CAF50;
+           color: white;
+       }
+       a {
+           text-decoration: none;
+           padding-top:4px;
+
+
+       }
+        </style>
+    
+    </head>
+    <body>
+        <header>
+            <h1><a href='/'>The Post</a></h1>
+          
+        </header>
+        <nav>
+            <a href='/'>Home</a>
+              <!-- Add a link to the new form -->
+            <a href='/post/create'>Create Post</a>
+        </nav>
+        <section>
+            {{template "body" .}}
+        </section>
+
+        <!--Footer -->
+        {{template "footer" .}}
+
+     <!--INCLUDE JAVASCRIPT -->
+        <script src="static/js/main.js" type="text/javascript"></script>
+    </body>
+
+</html>
+
+{{end}}
